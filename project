@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <style>
+        nav {
+            background-color: rgb(161, 67, 0);
+            padding: 1rem;
+            opacity: 90%;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0%;
+            padding: 0%;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        nav ul li {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+            display: inline;
+        }
+
+        nav ul li a {
+            color: aliceblue;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: rgb(240, 84, 0);
+            border-radius: 10px;
+            transform: scale(1.2);
+            filter: brightness(1.2);
+
+        }
+
+        body {
+            background-color: #a14a02f7;
+            /* اللون ديال الخلفية */
+            position: relative;
+            margin: 0;
+            min-height: 100vh;
+            z-index: 0;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("baki.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.5;
+            /* هنا تتحكمي فالشفافية */
+            z-index: -1;
+            /* باش تبقى خلف باقي العناصر */
+        }
+
+
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            /* بدل flex-start */
+            gap: 20px;
+            /* مسافة بين الكروت */
+            padding: 20px;
+            /* مسافة من حافة الصفحة */
+            overflow: visible;
+        }
+
+
+        .products-item {
+            border: 4px solid #000;
+            width: 250px;
+            border-style: groove;
+            padding: 5px;
+            border-radius: 20px;
+            position: relative;
+
+            display: flex;
+            flex-direction: column;
+            /* مهم بزاف */
+            justify-content: space-between;
+            box-sizing: border-box;
+        }
+
+
+
+        .products-item:hover {
+            border: 5px solid #ff0000dc;
+            z-index: 10;
+            transform: scale(1.15);
+            filter: brightness(1.2);
+        }
+
+        .products-item-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .products-item-footer {
+            border: 2px solid #cccccc;
+            background-color: #f0f0f0;
+            padding: 15px;
+            margin-top: auto;
+            /* يخلي footer لتحت */
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+
+
+        .pricing {
+
+
+
+            font-size: 16px;
+            margin: 6px 0;
+            margin-top: 10px;
+            display: block;
+
+
+        }
+
+        .name {
+
+            font-family: 'Poppins', sans-serif;
+
+            font-weight: 600;
+            color: #333;
+            /* مسافة فوق وتحت */
+            text-align: center;
+            word-break: break-word;
+            /* باش يكسر السطر بذكاء */
+            letter-spacing: 0.5px;
+            line-height: 1.3;
+
+            font-size: 15px;
+            margin: 6px 0;
+
+        }
+
+        .cart {
+
+            background-color: #fa7000;
+            color: white;
+
+
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 6px 10px;
+            font-size: 13px;
+        }
+
+        .title {
+
+            text-align: center;
+            /* موسّط */
+            font-size: 28px;
+            /* كبير وواضح */
+            font-weight: bold;
+            /* بارز */
+            color: #ffffff;
+            /* نفس ألوان الموقع */
+            margin-bottom: 20px;
+            /* مسافة بين العنوان والكروت */
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+
+        }
+
+
+
+        .ribbon {
+            position: absolute;
+            top: 10px;
+            left: -10px;
+            background-color: #ff0015;
+            color: white;
+            padding: 6px 12px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 5px;
+            z-index: 10;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin: 10px 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .pagination a {
+            padding: 4px 8px;
+            /* نقصنا padding باش يكون صغير */
+            font-size: 12px;
+            /* حجم الخط صغير */
+            text-decoration: none;
+            color: #e1e3e3;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .pagination a:hover {
+            background-color: #ff7300f7;
+            color: white;
+            border-color: #ff7300f7;
+        }
+
+        .pagination a.active {
+            background-color: #a05110f7;
+            color: white;
+            font-weight: bold;
+            border-color: #a14a02f7;
+        }
+
+        .pagination a.prev,
+        .pagination a.next {
+            font-weight: bold;
+        }
+
+        .title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: #ff7300;
+            margin: 8px auto 0 auto;
+            border-radius: 2px;
+        }
+    </style>
+
+<body>
+    <nav>
+
+        <ul>
+            <li><a href="dashboard.html"><img src="library.png" alt="cart icon" height="40" width="40">Home</a></li>
+            <li><a href="project.html"><img src="book.png" alt="cart icon" height="40" width="40">Products</a></li>
+            <li><a href="login.html"><img src="login.png" alt="cart icon" height="40" width="40">Log in</a></li>
+            <li><a href="about.html"><img src="about.png" alt="cart icon" height="40" width="40">About</a></li>
+            <li><a href="#"><img src="cart.png" alt="cart icon" height="40" width="40">
+                    Shop</a></li>
+        </ul>
+    </nav>
+    <div class="title">
+        <p> products:
+        </p>
+
+    </div>
+
+    <div class="products">
+        <div class="products-item">
+            <div class="ribbon">NEW</div>
+            <div class="products-item-img">
+
+
+                <img src="surrounded.jpg" alt="Northern Lights" class="products-item-img">
+
+            </div>
+
+
+            <div class="products-item-footer">
+                <p class="name">Surrounded by idiots</p>
+                <div class="pricing">
+                    <p class="product-price">$3.50</p>
+                </div>
+                <div class="cart"><button type="button" class="cart">Add to cart</button></div>
+            </div>
+        </div>
+
+
+
+        <div class="products-item">
+            <div class="ribbon">NEW</div>
+            <div class="products-item-img">
+
+
+                <img src="atomic.jpg" alt="Northern Lights" class="products-item-img">
+
+            </div>
+
+
+            <div class="products-item-footer">
+                <p class="name">Atomic Habits</p>
+                <div class="pricing">
+                    <p class="product-price">10$</p>
+                </div>
+                <div class="cart"><button type="button" class="cart">Add to cart</button></div>
+            </div>
+        </div>
+        <div class="products-item">
+            <div class="ribbon">NEW</div>
+            <div class="products-item-img">
+
+
+                <img src="before.jpg" alt="Northern Lights" class="products-item-img">
+
+            </div>
+
+
+            <div class="products-item-footer">
+                <p class="name">Before the Coffee gets cold</p>
+                <div class="pricing">
+                    <p class="product-price">8.50$</p>
+                </div>
+                <div class="cart"><button type="button" class="cart">Add to cart</button></div>
+            </div>
+        </div>
+        <div class="products-item">
+            <div class="ribbon">NEW</div>
+            <div class="products-item-img">
+
+
+                <img src="ikigai.jpg" alt="Northern Lights" class="products-item-img">
+
+            </div>
+
+
+            <div class="products-item-footer">
+                <p class="name">Ikigai</p>
+                <div class="pricing">
+                    <p class="product-price">9.50$</p>
+                </div>
+                <div class="cart"><button type="button" class="cart">Add to cart</button></div>
+            </div>
+        </div>
+        <div class="products-item">
+            <div class="ribbon">NEW</div>
+            <div class="products-item-img">
+
+
+                <img src="alc.jpg" alt="Northern Lights" class="products-item-img">
+
+            </div>
+
+
+            <div class="products-item-footer">
+                <p class="name">The Alchemist</p>
+                <div class="pricing">
+                    <p class="product-price">$3.50</p>
+                </div>
+                <div class="cart"><button type="button" class="cart">Add to cart</button></div>
+            </div>
+        </div>
+        <div class="products-item">
+            <div class="ribbon">NEW</div>
+            <div class="products-item-img">
+
+
+                <img src="miraacle.jpg" alt="Northern Lights" class="products-item-img">
+
+            </div>
+
+
+            <div class="products-item-footer">
+                <p class="name">The Miracle Morning</p>
+                <div class="pricing">
+                    <p class="product-price">$3.50</p>
+                </div>
+                <div class="cart"><button type="button" class="cart">Add to cart</button></div>
+            </div>
+        </div>
+
+        <div class="products-item">
+            <div class="ribbon">NEW</div>
+            <div class="products-item-img">
+
+
+                <img src="you.jpg" alt="Northern Lights" class="products-item-img">
+
+            </div>
+
+
+            <div class="products-item-footer">
+                <p class="name">The Mountain Is You</p>
+                <div class="pricing">
+                    <p class="product-price">$3.50</p>
+                </div>
+                <div class="cart"><button type="button" class="cart">Add to cart</button></div>
+            </div>
+        </div>
+        <div class="products-item">
+            <div class="ribbon">NEW</div>
+            <div class="products-item-img">
+
+
+                <img src="power.jpg" alt="Northern Lights" class="products-item-img">
+
+            </div>
+
+
+            <div class="products-item-footer">
+                <p class="name">Power
+                </p>
+                <div class="pricing">
+                    <p class="product-price">$3.50</p>
+                </div>
+                <div class="cart"><button type="button" class="cart">Add to cart</button></div>
+            </div>
+        </div>
+        <div class="products-item">
+            <div class="ribbon">NEW</div>
+            <div class="products-item-img">
+
+
+                <img src="ego.jpg" alt="Northern Lights" class="products-item-img">
+
+            </div>
+
+
+            <div class="products-item-footer">
+                <p class="name">Ego Is The Enemy</p>
+                <div class="pricing">
+                    <p class="product-price">$3.50</p>
+                </div>
+                <div class="cart"><button type="button" class="cart">Add to cart</button></div>
+            </div>
+        </div>
+        <div class="products-item">
+            <div class="ribbon">NEW</div>
+            <div class="products-item-img">
+
+
+                <img src="boundaries.jpg" alt="Northern Lights" class="products-item-img">
+
+            </div>
+
+
+            <div class="products-item-footer">
+                <p class="name">Boundaries</p>
+                <div class="pricing">
+                    <p class="product-price">$3.50</p>
+                </div>
+                <div class="cart"><button type="button" class="cart">Add to cart</button></div>
+            </div>
+        </div>
+        <div class="pagination">
+            <a href="#" class="prev">« Previous</a>
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#" class="next">Next »</a>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

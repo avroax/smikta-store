@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+
+
+<head>
+<style>
+nav {
+            background-color: rgb(161, 67, 0);
+            padding: 1rem;
+            opacity: 90%;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0%;
+            padding: 0%;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        nav ul li {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+            display: inline;
+        }
+
+        nav ul li a {
+            color: aliceblue;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: rgb(240, 84, 0);
+            border-radius: 10px;
+            transform: scale(1.2);
+            filter: brightness(1.2);
+
+        }
+        body {
+            background-color: #a14a02f7;
+            /* اللون ديال الخلفية */
+            position: relative;
+            margin: 0;
+            min-height: 100vh;
+            z-index: 0;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("bookkk.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.5;
+            z-index: -1;
+            
+        }
+
+     .about {
+  padding: 60px 20px;
+  background-color: #f7d9bf;
+  text-align: center;
+}
+
+.about-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about h2 {
+  font-size: 32px;
+  color: #9b4600;
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+}
+
+.about h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #ff7300f7;
+  margin: 8px auto 0 auto;
+  border-radius: 2px;
+}
+
+.about p {
+  font-size: 16px;
+  color: #000000;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+
+
+</style>
+
+</head>
+
+
+
+
+<body>
+
+    <nav>
+
+        <ul>
+            <li><a href="dashboard.html"><img src="library.png" alt="cart icon" height="40" width="40">Home</a></li>
+            <li><a href="project"><img src="book.png" alt="cart icon" height="40" width="40">Products</a></li>
+            <li><a href="login.html"><img src="login.png" alt="cart icon" height="40" width="40">Log in</a></li>
+            <li><a href="about.html"><img src="about.png" alt="cart icon" height="40" width="40">About</a></li>
+            <li><a href="#"><img src="cart.png" alt="cart icon" height="40" width="40">
+                    Shop</a></li>
+        </ul>
+    </nav>
+<section class="about">
+  <div class="about-container">
+    <h2>About Smikta's Store</h2>
+    <p>
+      Welcome to <strong style="color: #d00000;">Smikta's Store</strong>, your cozy corner for all things books! 
+      Whether you're looking for the latest bestseller, timeless classics, or unique finds from local authors, we have something for every reader.
+    </p>
+    <p>
+      Our mission is simple: to make reading accessible, enjoyable, and inspiring. 
+      Explore our collection, discover new stories, and let Smikta’s Store be your companion in every adventure!
+    </p>
+  </div>
+</section>
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+</html>
