@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0%;
+            padding: 0%;
+
+        }
+
+        nav {
+            background-color: rgb(161, 67, 0);
+            padding: 1rem;
+            opacity: 90%;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0%;
+            padding: 0%;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        nav ul li {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+            display: inline;
+        }
+
+        nav ul li a {
+            color: aliceblue;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: rgb(240, 84, 0);
+            border-radius: 10px;
+            transform: scale(1.2);
+            filter: brightness(1.2);
+
+        }
+
+        .welcome {
+            width: 100%;
+            height: 100vh;
+            background-image: url("logo.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: transform 0.3s ease;
+
+        }
+
+        .welcome:hover {
+
+            transform: scale(1.2);
+            filter: brightness(1.2);
+        }
+
+        footer .social {
+            display: flex;
+            /* يخليهم جنب بعضهم */
+            justify-content: space-around;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            gap: 10px;
+            /* المسافة بين الايقونات */
+        }
+
+
+        .background-image {
+            width: 100%;
+            height: 100vh;
+
+            background-image:
+
+                url("loli.jpg");
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        footer {
+            background-color: rgb(185, 52, 0);
+        }
+
+        footer img {
+            height: 60px;
+            width: 60px;
+            transition: transform 0.3s ease;
+        }
+
+        footer img:hover {
+
+
+            transform: scale(1.2);
+            filter: brightness(1.2);
+        }
+
+        .contact-title {
+            font-family: 'Poppins', sans-serif;
+            font-style: italic;
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            color: #ffffff;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+
+    <nav>
+
+        <ul>
+            <li><a href="index.html"><img src="library.png" alt="library icon" height="40" width="40">Home</a></li>
+            <li><a href="project.html"><img src="book.png" alt="book icon" height="40" width="40">Products</a></li>
+            <li><a href="login.html"><img src="login.png" alt="login icon" height="40" width="40">Log in</a></li>
+            <li><a href="about.html"><img src="about.png" alt="about icon" height="40" width="40">About</a></li>
+            <li><a href="#"><img src="cart.png" alt="cart icon" height="40" width="40">
+                    Shop</a></li>
+        </ul>
+    </nav>
+    <div class="background-image">
+        <div class="welcome">
+
+
+        </div>
+
+    </div>
+
+
+
+    <footer>
+        <div class="social">
+            <p class="contact-title">Get in Touch!</p>
+
+
+            <a href="#"><img src="facebook.png" alt="Facebook" class="footer img"></a>
+            <a href="#"><img src="x.png" alt="Twitter"></a>
+            <a href="#"><img src="insta.png" alt="Instagram"></a>
+            <a href="#"><img src="what.png" alt="Whatssap"></a>
+            <a href="#"><img src="gmail.png" alt="Gmail"></a>
+
+        </div>
+    </footer>
+
+</body>
+
+
+
+</html>
